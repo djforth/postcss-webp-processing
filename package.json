@@ -13,12 +13,17 @@
     "webp",
     "image processing"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test"
+    }
+  },
   "scripts": {
     "lint": "eslint src/** --fix",
     "lint:tests": "eslint __tests__/** --fix",
     "precommit": "yarn test",
     "prepublish": "yarn test",
-    "postpublish": "git a && git c 'published' && git push",
     "test": "jest --coverage --config jest.config.json && eslint src/*.js",
     "test:watch": "jest --watch --config jest.config.json"
   },
@@ -31,6 +36,7 @@
   "homepage": "https://github.com/djforth/postcss-webp-processing",
   "dependencies": {
     "cwebp": "^2.0.4",
+    "husky": "^3.0.9",
     "make-dir": "^3.0.0",
     "postcss": "^7.0.18"
   },
@@ -41,14 +47,14 @@
     "eslint-config-postcss": "^3.0.7",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-es5": "^1.4.1",
-    "eslint-plugin-prefer-let": "^1.0.1",
-    "eslint-plugin-unicorn": "^12.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.19.0",
     "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prefer-let": "^1.0.1",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-unicorn": "^12.1.0",
     "jest": "^24.9.0"
   },
   "eslintConfig": {

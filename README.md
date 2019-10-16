@@ -2,13 +2,13 @@
 
 [PostCSS] plugin to process all png and jpg files to webp.
 
-[PostCSS]: https://github.com/postcss/postcss
-[ci-img]:  https://travis-ci.org/djforth/postcss-webp-processing.svg
-[ci]:      https://travis-ci.org/djforth/postcss-webp-processing
+[postcss]: https://github.com/postcss/postcss
+[ci-img]: https://travis-ci.org/djforth/postcss-webp-processing.svg
+[ci]: https://travis-ci.org/djforth/postcss-webp-processing
 
 ```css
 .foo {
-    /* Input example */
+  /* Input example */
 }
 ```
 
@@ -21,7 +21,9 @@
 ## Usage
 
 ```js
-postcss([ require('postcss-webp-processing') ])
+postcss([require("postcss-webp-processing")]);
 ```
 
 See [PostCSS] docs for examples for your environment.
+
+test
