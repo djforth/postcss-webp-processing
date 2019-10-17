@@ -12,6 +12,7 @@ const DEFAULT_OPTS = {
   env,
   environments: 'all',
   imageFolder: /~images/,
+  quality: 60,
   replaceFrom: /\.(jpe?g|png)/,
   resolvePath: 'app/javascript/images',
   webpClass: '.webp',
@@ -62,7 +63,8 @@ module.exports = postcss.plugin('postcss-webp-processing', (opts = {}) => {
             prop: decl.prop,
             value: v
           }))
-        } else {
+        } else if (decl.prop === 'background-size') {
+          console.log(decl.prop)
           decs.push(postcss.decl({
             prop: decl.prop,
             value: decl.value

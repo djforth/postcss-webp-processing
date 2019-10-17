@@ -13,7 +13,7 @@ module.exports = async (options, path) => {
   let imagePath = getImagePath(options, path)
   let webpPath = getWebpPath(options, path)
   let encoder = new CWebp(imagePath)
-
+  encoder.quality(options.quality)
   try {
     await encoder.write(webpPath)
   } catch (e) {

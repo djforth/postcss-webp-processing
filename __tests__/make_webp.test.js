@@ -8,6 +8,7 @@ describe("Make Webp", () => {
     await MakeWebp(
       {
         imageFolder: /~images/,
+        quality: 60,
         resolvePath: "app/javascript/images",
         webpFolder: "tmp/webp"
       },
