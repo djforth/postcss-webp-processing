@@ -21,8 +21,6 @@
   "scripts": {
     "lint": "eslint src/** --fix",
     "lint:tests": "eslint __tests__/** --fix",
-    "precommit": "yarn test",
-    "prepublish": "yarn test",
     "test": "jest --coverage --config jest.config.json && eslint src/*.js",
     "test:watch": "jest --watch --config jest.config.json"
   },
