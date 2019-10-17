@@ -1,20 +1,46 @@
-# PostCSS Webp Processing [![Build Status][ci-img]][ci]
+# PostCSS Webp Processing
 
-[PostCSS] plugin to process all png and jpg files to webp.
+[PostCSS] plugin to process all png and jpg files to webp files.
 
 [postcss]: https://github.com/postcss/postcss
-[ci-img]: https://travis-ci.org/djforth/postcss-webp-processing.svg
-[ci]: https://travis-ci.org/djforth/postcss-webp-processing
 
 ```css
-.foo {
-  /* Input example */
+.my-background {
+  background: url("~image/foo.jpg") no-repeat;
+}
+
+.my-border-image {
+  border-image: url("~image/borders/bar.png");
+}
+
+.my-background-image {
+  background-image: url("~image/foobar.jpeg");
 }
 ```
 
 ```css
-.foo {
-  /* Output example */
+.my-background {
+  background: url("~image/foo.jpg") no-repeat;
+}
+
+.my-border-image {
+  border-image: url("~image/borders/bar.png");
+}
+
+.my-background-image {
+  background-image: url("~image/foobar.jpeg");
+}
+
+.webp .my-background {
+  background: url("~webp/foo.webp") no-repeat;
+}
+
+.webp .webp.my-border-image {
+  border-image: url("~webp/borders/bar.webp");
+}
+
+.webp .my-background-image {
+  background-image: url("~webp/foobar.webp");
 }
 ```
 
@@ -23,6 +49,8 @@
 ```js
 postcss([require("postcss-webp-processing")]);
 ```
+
+Options
 
 See [PostCSS] docs for examples for your environment.
 
