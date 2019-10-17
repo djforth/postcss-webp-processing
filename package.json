@@ -1,6 +1,6 @@
 {
   "name": "postcss-webp-processing",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostCSS plugin to process all png and jpg files to webp",
   "main": "src/index.js",
   "engines": {
