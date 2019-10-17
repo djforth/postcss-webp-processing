@@ -65,6 +65,7 @@ Option | Description | default
 environments| sets the enviroments that it will be triggered, can be string 'production' or array ['staging', 'production']  | 'all',
 imageFolder| The expected image folder |  /~images/
 replaceFrom | Files to replace | /\.(jpe?g\|png)/
+replaceTo | optional either function ```replaceTo({ file, folder, url })``` or regex | N/A
 resolvePath | Actual path to images | 'app/javascript/images'
 webpFolder | Where webp images will be generated  | 'tmp/webp'
 webpPath: | Image path to be set in css | '~webp'
