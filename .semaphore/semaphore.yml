@@ -9,8 +9,9 @@ blocks:
     task:
       prologue:
         commands:
+          - sem-version node 11.12.0
           - yarn
       jobs:
-        - name: make lint
+        - name: run tests
           commands:
             - yarn test
