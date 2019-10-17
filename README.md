@@ -74,6 +74,7 @@ module.exports = {
 | replaceFrom  | Files to replace                                                                                              | /\.(jpe?g\|png)/        |
 | replaceTo    | optional either function `replaceTo({ file, folder, url })` or regex                                          | N/A                     |
 | resolvePath  | Actual path to images                                                                                         | 'app/javascript/images' |
+| webpClass:    | css class to be set for webp                                                                                 | '.webp'                 |
 | webpFolder   | Where webp images will be generated                                                                           | 'tmp/webp'              |
 | webpPath:    | Image path to be set in css                                                                                   | '~webp'                 |
 
