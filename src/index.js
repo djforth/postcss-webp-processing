@@ -34,13 +34,14 @@ const checkEnvironment = ({ environments, env: e }) => {
 
 module.exports = postcss.plugin('postcss-webp-processing', (opts = {}) => {
   let options = { ...DEFAULT_OPTS, ...opts }
-  let tester = new RegExp(`^${options.webpClass}`)
+  /* eslint-disable */
+  let tester = new RegExp(`^${ options.webpClass }`)
+  /* eslint-enable */
   return function (root) {
     // Transform CSS AST here
     if (!checkEnvironment(options)) return
     root.walkRules(rule => {
-
-      if (tester.test(rule.selector)) return;
+      if (tester.test(rule.selector)) return
       let decs = []
       rule.walkDecls(/^background-?|border-image/, decl => {
         if (CheckAttribute(options, decl)) {
@@ -71,7 +72,7 @@ module.exports = postcss.plugin('postcss-webp-processing', (opts = {}) => {
 
       if (decs.length > 0) {
         root.append({
-          selector: `${options.webpClass} ${rule.selector}`,
+          selector: `${ options.webpClass } ${ rule.selector }`,
           nodes: decs
         })
       }
