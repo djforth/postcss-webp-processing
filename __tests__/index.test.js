@@ -18,20 +18,20 @@ function run (input, outputs, opts) {
 
 describe('postcss-webp-processing', () => {
   it('should add webp if options', async () => {
-    const css = ".foo{background: url('~images/foo.jpg') no-repeat;}";
+    const css = ".foo{background: url('~images/foo.jpg') no-repeat;background-size:cover;}";
 
     const expected = [
-      ".foo{background: url('~images/foo.jpg') no-repeat;}",
-      ".webp .foo{background: url('~webp/foo.webp') no-repeat;}"
+      ".foo{background: url('~images/foo.jpg') no-repeat;background-size:cover;}",
+      ".webp .foo{background: url('~webp/foo.webp') no-repeat;background-size: cover;}"
     ];
     return await run(css, expected, {});
   })
 
   it('should add webp if options if  environment set and matches', async () => {
-    const css = ".foo{background: url('~images/foo.jpg') no-repeat;}";
+    const css = ".foo{background: url('~images/foo.jpg') no-repeat; font-size: 1rem;}";
 
     const expected = [
-      ".foo{background: url('~images/foo.jpg') no-repeat;}",
+      ".foo{background: url('~images/foo.jpg') no-repeat; font-size: 1rem;}",
       ".webp .foo{background: url('~webp/foo.webp') no-repeat;}"
     ];
     return await run(css, expected, {
