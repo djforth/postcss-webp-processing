@@ -47,44 +47,51 @@
 ## Usage
 
 ```js
-postcss([require("postcss-webp-processing")({ /* ...your config */ })]);
+postcss([
+  require("postcss-webp-processing")({
+    /* ...your config */
+  })
+]);
 ```
+
 or in postcss.config.js
 
 ```js
 const WebpProcessing = require("postcss-webp-processing");
 module.exports = {
   plugins: [
-    WebpProcessing({ /* ...your config */ })
+    WebpProcessing({
+      /* ...your config */
+    })
   ]
-}
+};
 ```
 
-Option | Description | default
-:-------|:-------|:-------
-environments| sets the enviroments that it will be triggered, can be string 'production' or array ['staging', 'production']  | 'all',
-imageFolder| The expected image folder |  /~images/
-replaceFrom | Files to replace | /\.(jpe?g\|png)/
-replaceTo | optional either function ```replaceTo({ file, folder, url })``` or regex | N/A
-resolvePath | Actual path to images | 'app/javascript/images'
-webpFolder | Where webp images will be generated  | 'tmp/webp'
-webpPath: | Image path to be set in css | '~webp'
+| Option       | Description                                                                                                   | default                 |
+| :----------- | :------------------------------------------------------------------------------------------------------------ | :---------------------- |
+| environments | sets the enviroments that it will be triggered, can be string 'production' or array ['staging', 'production'] | 'all',                  |
+| imageFolder  | The expected image folder                                                                                     | /~images/               |
+| replaceFrom  | Files to replace                                                                                              | /\.(jpe?g\|png)/        |
+| replaceTo    | optional either function `replaceTo({ file, folder, url })` or regex                                          | N/A                     |
+| resolvePath  | Actual path to images                                                                                         | 'app/javascript/images' |
+| webpFolder   | Where webp images will be generated                                                                           | 'tmp/webp'              |
+| webpPath:    | Image path to be set in css                                                                                   | '~webp'                 |
 
 Additional webpacker config:
 
 ```js
-const { resolve } = require('path');
-const { environment } = require('@rails/webpacker');
-const config = require('@rails/webpacker/package/config');
+const { resolve } = require("path");
+const { environment } = require("@rails/webpacker");
+const config = require("@rails/webpacker/package/config");
 
-environment.config.set('resolve.alias', {
-  images: resolve(config.source_path, 'images'),
-  webp: resolve('tmp', 'webp'),
+environment.config.set("resolve.alias", {
+  images: resolve(config.source_path, "images"),
+  webp: resolve("tmp", "webp")
 });
-
 ```
 
 Additional or your webpack.config.js:
+
 ```js
 const { resolve } = require('path');
 
@@ -103,6 +110,33 @@ module.exports = {
   }
 };
 
+```
+
+To set for webp, either use modernzr or use this:
+
+```js
+function checkWebP(callback) {
+  var webP = new Image();
+
+  const event = () => {
+    callback(webP.height === 2);
+  };
+
+  webp.addEventListener("load", event);
+
+  webp.addEventListener("error", event);
+
+  webP.src =
+    "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+}
+
+checkWebP(function(support) {
+  if (support) {
+    document.body.classList.add("webp");
+  } else {
+    document.body.classList.add("no-webp");
+  }
+});
 ```
 
 # Bug reports

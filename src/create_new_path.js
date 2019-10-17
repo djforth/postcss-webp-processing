@@ -1,4 +1,4 @@
-const WEBP_REGEXP = /^(~images)([\w\d/-_]+)(\.[jpe?g|png]+)/
+const WEBP_REGEXP = /^(~images)([\w\d/\-_]+)(\.[jpe?g|png]+)/
 
 const checkReplaceTo = replaceTo =>
   replaceTo && typeof replaceTo === 'function'
