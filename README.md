@@ -1,6 +1,6 @@
 # PostCSS Webp Processing
 
-[PostCSS] plugin to process all png and jpg files to webp files. This has been designed to work with [webpacker](https://github.com/rails/webpacker) and [webpack](https://webpack.js.org/)
+[PostCSS] plugin to process all png and jpg files to webp files from a css file. This has been designed to work with [webpacker](https://github.com/rails/webpacker) and [webpack](https://webpack.js.org/)
 
 [postcss]: https://github.com/postcss/postcss
 
@@ -71,6 +71,7 @@ module.exports = {
 | :----------- | :------------------------------------------------------------------------------------------------------------ | :---------------------- |
 | environments | sets the enviroments that it will be triggered, can be string 'production' or array ['staging', 'production'] | 'all',                  |
 | imageFolder  | The expected image folder                                                                                     | /~images/               |
+| quality  | Quality of webp images                                                                                   | 60               |
 | replaceFrom  | Files to replace                                                                                              | /\.(jpe?g\|png)/        |
 | replaceTo    | optional either function `replaceTo({ file, folder, url })` or regex                                          | N/A                     |
 | resolvePath  | Actual path to images                                                                                         | 'app/javascript/images' |
