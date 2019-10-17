@@ -64,7 +64,6 @@ module.exports = postcss.plugin('postcss-webp-processing', (opts = {}) => {
             value: v
           }))
         } else if (decl.prop === 'background-size') {
-          console.log(decl.prop)
           decs.push(postcss.decl({
             prop: decl.prop,
             value: decl.value
