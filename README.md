@@ -112,7 +112,7 @@ module.exports = {
 
 ```
 
-To set for webp, either use modernzr or use this:
+To set for webp, either use [modernzr](https://modernizr.com/download?webp-webpalpha-webpanimation-webplossless_webp_lossless-setclasses&q=webp) or use this:
 
 ```js
 function checkWebP(callback) {
