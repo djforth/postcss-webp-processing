@@ -35,7 +35,7 @@
     "cwebp": "^2.0.4",
     "husky": "^3.0.9",
     "make-dir": "^3.0.0",
-    "postcss": "^7.0.18"
+    "postcss": "^8.2.10"
   },
   "devDependencies": {
     "@djforth/jest-matchers": "^2.1.0",
